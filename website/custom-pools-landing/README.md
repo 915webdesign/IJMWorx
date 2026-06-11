@@ -37,11 +37,24 @@ Everything else obeys the single-conversion rule:
 gold offer strip, and a dedicated "see your pool in 3D before we break ground"
 section. It's the page's main hook.
 
-## Photo slots (replace the colored blocks)
-1. **Hero** — finished custom pool at dusk, lit.
-2. **3D section** — a 3D render next to the finished pool of the *same* yard.
-3. **Transformations** — 3 before/after pool pairs (dirt → oasis).
-Use real project photos — stock pushes this audience away.
+## Photos — real IJM projects, already wired in
+The page uses your **actual project photos**, served straight from your Wix CDN
+(`static.wixstatic.com`) — public, fast, and already on your account, so nothing
+new to upload. I identified each hash-named Wix image by matching file sizes to
+your descriptively-named Drive photos, then viewed them to confirm.
+
+- **Hero:** your night-lit pool with spa + fire feature (perfect on the dark theme).
+- **3D section:** your daytime freeform pool with a rock waterfall.
+- **Gallery (6):** night pool · waterfall pool · sunken fire-pit pool · full
+  backyard pool · custom water feature · stacked-stone fire feature.
+
+To swap any image, replace its `static.wixstatic.com/media/9c39dd_…` URL in
+`index.html` with another from your Wix media. The `/v1/fill/w_,h_,q_,enc_auto/`
+suffix just resizes/compresses on the fly — keep that pattern for speed.
+
+> No "before/after dirt" shots existed in your photo set, so that section is a
+> **Recent Pools gallery** of finished work instead. Send before/after pairs and
+> I'll add them.
 
 ## How to publish in Wix
 1. Add an **Embed → Custom Element / HTML iframe** (or Velo HTML component) to the page.

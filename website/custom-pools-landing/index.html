@@ -11,6 +11,7 @@
   /* ============================================================
      IJM WORX — Custom Pools Landing Page (Wix HTML embed)
      Brand: metallic gold on near-black (from logo + site).
+     Photos: real IJM projects served from your Wix CDN.
      SINGLE CONVERSION: every CTA scrolls to #design-form, where
      the Wix form is embedded. No external links anywhere.
      ============================================================ */
@@ -19,7 +20,7 @@
     --gold:#c9a24b; --gold-bright:#f0dca0; --gold-deep:#8f7129;
     --paper:#ece9e1; --muted:#a8a294;
     --grad-gold:linear-gradient(135deg,#f3e0a6,#c9a24b 55%,#a9842f);
-    --radius:16px; --shadow:0 24px 60px -28px rgba(0,0,0,.8);
+    --radius:16px; --shadow:0 24px 60px -28px rgba(0,0,0,.85);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -28,57 +29,46 @@
   img{max-width:100%;display:block}
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
   .eyebrow{font-family:'Inter';font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.74rem;color:var(--gold)}
-  .gold-text{color:var(--gold-bright)}
   .section{padding:84px 0}
   .center{text-align:center}
-
-  /* buttons — gold, in-page anchor only (single conversion) */
   .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1.02rem;padding:16px 30px;border-radius:999px;cursor:pointer;border:0;transition:.18s;background:var(--grad-gold);color:#1c1606;box-shadow:0 14px 30px -12px rgba(201,162,75,.6)}
   .btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
-  .btn-lg{font-size:1.12rem;padding:18px 38px}
+  .btn-lg{font-size:1.12rem;padding:18px 40px}
 
-  /* photo placeholders — replace with real pool photos */
-  .ph{position:relative;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,#1d2630,#21333d 55%,#2d3b34);min-height:240px;border:1px solid var(--line)}
-  .ph::after{content:attr(data-label);position:absolute;left:14px;bottom:12px;right:14px;font-size:.72rem;font-weight:600;color:rgba(240,220,160,.85)}
-  .ph.dusk{background:linear-gradient(135deg,#10151c,#243246 55%,#5a4a2a)}
-  .ph.dirt{background:linear-gradient(135deg,#332a1c,#5a4a30)}
-
-  /* ---------- top bar (no links) ---------- */
-  .topbar{border-bottom:1px solid var(--line);background:rgba(14,14,16,.85);backdrop-filter:blur(8px);position:sticky;top:0;z-index:40}
-  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;gap:16px}
+  /* ---------- top bar (logo + trust text only — no links) ---------- */
+  .topbar{border-bottom:1px solid var(--line);background:rgba(14,14,16,.9);backdrop-filter:blur(8px);position:sticky;top:0;z-index:40}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:13px 24px;gap:16px}
   .topbar img.logo{height:46px;width:auto}
   .topbar .meta{font-size:.86rem;color:var(--muted);font-weight:600;text-align:right}
   .topbar .meta b{color:var(--paper)}
   @media(max-width:600px){.topbar .meta .hide{display:none}}
 
-  /* ---------- hero ---------- */
-  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 78% 10%,rgba(201,162,75,.18),transparent 60%)}
-  .hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;padding:72px 24px 76px}
-  .offer-pill{display:inline-flex;align-items:center;gap:9px;background:rgba(201,162,75,.12);border:1px solid var(--gold);color:var(--gold-bright);font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;padding:9px 16px;border-radius:999px;margin-bottom:22px}
-  .offer-pill .star{color:var(--gold)}
-  .hero h1{font-size:clamp(2.4rem,4.8vw,3.6rem);color:var(--paper);font-weight:700}
+  /* ---------- hero (full-bleed real night pool) ---------- */
+  .hero{position:relative;overflow:hidden}
+  .hero .hero-bg{position:absolute;inset:0;background-image:url('https://static.wixstatic.com/media/9c39dd_1f5046e56c344ef68f56b806bd529cb9~mv2.jpg/v1/fill/w_1800,h_1150,al_c,q_85,enc_auto/ijm-pool-night.jpg');background-size:cover;background-position:center}
+  .hero .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,12,.7),rgba(10,10,12,.82)),radial-gradient(70% 80% at 75% 30%,rgba(201,162,75,.18),transparent 60%)}
+  .hero .wrap{position:relative;text-align:center;padding:96px 24px 104px;max-width:880px}
+  .offer-pill{display:inline-flex;align-items:center;gap:9px;background:rgba(201,162,75,.14);border:1px solid var(--gold);color:var(--gold-bright);font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;padding:9px 17px;border-radius:999px;margin-bottom:24px}
+  .hero h1{font-size:clamp(2.5rem,5.4vw,4rem);color:#fff;font-weight:700}
   .hero h1 em{font-style:normal;color:var(--gold-bright)}
-  .hero p.sub{font-size:1.15rem;color:#cfcabd;margin-top:18px;max-width:32em}
-  .hero .cta-row{margin-top:28px}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-  .chip{display:inline-flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:.84rem;font-weight:600;color:#d8d3c6}
+  .hero p.sub{font-size:1.2rem;color:#e6e1d4;margin:18px auto 0;max-width:36em}
+  .hero .cta-row{margin-top:30px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;justify-content:center}
+  .chip{display:inline-flex;align-items:center;gap:8px;background:rgba(20,20,24,.6);border:1px solid rgba(201,162,75,.3);padding:8px 14px;border-radius:999px;font-size:.84rem;font-weight:600;color:#e6e1d4}
   .chip .g{color:var(--gold)}
-  .hero-photo .ph{min-height:420px;box-shadow:var(--shadow)}
-  @media(max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:30px;padding-top:48px}.hero-photo .ph{min-height:300px}}
 
   /* ---------- offer strip ---------- */
   .offer-strip{background:var(--grad-gold);color:#1c1606}
-  .offer-strip .wrap{display:flex;align-items:center;justify-content:center;gap:14px;text-align:center;padding:18px 24px;flex-wrap:wrap}
-  .offer-strip b{font-family:'Fraunces';font-size:1.25rem;font-weight:700}
-  .offer-strip span{font-weight:600}
+  .offer-strip .wrap{display:flex;align-items:center;justify-content:center;gap:12px;text-align:center;padding:18px 24px;flex-wrap:wrap}
+  .offer-strip b{font-family:'Fraunces';font-size:1.28rem;font-weight:700}
 
-  /* ---------- section heading ---------- */
+  /* ---------- section heads ---------- */
   .head{max-width:680px;margin:0 auto 46px}
   .head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);color:var(--paper)}
   .head p{margin-top:14px;font-size:1.08rem;color:var(--muted)}
 
-  /* ---------- the offer explained ---------- */
+  /* ---------- 3D render section ---------- */
+  .render{background:var(--bg2)}
   .render .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
   .render h2{font-size:clamp(1.9rem,3.4vw,2.6rem);color:var(--paper)}
   .render h2 em{font-style:normal;color:var(--gold-bright)}
@@ -86,12 +76,12 @@
   .render ul{list-style:none;margin-top:22px;display:grid;gap:12px}
   .render li{display:flex;gap:12px;align-items:flex-start;color:#ddd8cb}
   .render li svg{width:22px;height:22px;color:var(--gold);flex-shrink:0;margin-top:2px}
-  .render-visual{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
-  .render-visual .arrow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:var(--grad-gold);color:#1c1606;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:800}
+  .render-img{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .render-img img{width:100%;height:100%;object-fit:cover;min-height:340px}
+  .render-img .cap{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;background:linear-gradient(transparent,rgba(10,10,12,.85));color:#fff;font-size:.9rem;font-weight:600}
   @media(max-width:860px){.render .wrap{grid-template-columns:1fr;gap:28px}}
 
   /* ---------- why ---------- */
-  .why{background:var(--bg2)}
   .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
   .vcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
   .vcard .ic{width:48px;height:48px;border-radius:12px;background:rgba(201,162,75,.12);border:1px solid rgba(201,162,75,.35);display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--gold)}
@@ -101,19 +91,17 @@
   @media(max-width:860px){.grid4{grid-template-columns:1fr 1fr}}
   @media(max-width:520px){.grid4{grid-template-columns:1fr}}
 
-  /* ---------- transformations ---------- */
-  .ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .ba{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-  .ba .pair{display:grid;grid-template-columns:1fr 1fr}
-  .ba .pair .ph{border-radius:0;min-height:150px;border:0}
-  .ba .pair .ph::before{content:attr(data-tag);position:absolute;top:10px;left:10px;background:rgba(0,0,0,.6);color:var(--gold-bright);font-size:.64rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:6px;text-transform:uppercase}
-  .ba .cap{padding:15px 18px}
-  .ba .cap b{font-family:'Fraunces';font-size:1.05rem;color:var(--paper)}
-  .ba .cap span{display:block;font-size:.86rem;color:var(--muted);margin-top:2px}
-  @media(max-width:860px){.ba-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+  /* ---------- gallery (real pools) ---------- */
+  .gallery{background:var(--bg2)}
+  .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .gal{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:#000}
+  .gal img{width:100%;height:100%;object-fit:cover;transition:.35s}
+  .gal:hover img{transform:scale(1.05)}
+  .gal .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(transparent,rgba(10,10,12,.9));color:#fff;font-size:.86rem;font-weight:600}
+  @media(max-width:860px){.gal-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.gal-grid{grid-template-columns:1fr}}
 
   /* ---------- reviews ---------- */
-  .reviews{background:var(--bg2)}
   .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .rev{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column}
   .rev .stars{color:var(--gold);letter-spacing:2px;margin-bottom:12px}
@@ -125,7 +113,7 @@
   @media(max-width:860px){.rev-grid{grid-template-columns:1fr}}
 
   /* ---------- financing ---------- */
-  .fin{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .fin{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .fin .wrap{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
   .fin h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--paper)}
   .fin h2 em{font-style:normal;color:var(--gold-bright)}
@@ -137,11 +125,10 @@
   .form-card .eyebrow{margin-bottom:10px}
   .form-card h2{font-size:clamp(1.7rem,3.2vw,2.3rem);color:var(--paper)}
   .form-card p.intro{color:#cfcabd;margin:12px auto 26px;max-width:38em}
-  /* embed slot: drop the Wix form here */
   #wix-form-embed{min-height:220px;border:2px dashed var(--gold-deep);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem;background:rgba(255,255,255,.02);padding:20px}
   .form-card .reassure{margin-top:18px;font-size:.85rem;color:var(--muted)}
 
-  /* ---------- footer (text only, no links) ---------- */
+  /* ---------- footer (text only — no links) ---------- */
   footer{background:#0a0a0c;border-top:1px solid var(--line);text-align:center;padding:34px 24px;color:var(--muted);font-size:.86rem}
   footer img{height:40px;margin:0 auto 14px;opacity:.9}
   footer .nap b{color:var(--paper)}
@@ -158,23 +145,19 @@
   </div>
 </div>
 
-<!-- ===== HERO ===== -->
+<!-- ===== HERO (real night-lit pool) ===== -->
 <section class="hero">
+  <div class="hero-bg"></div>
   <div class="wrap">
-    <div>
-      <span class="offer-pill"><span class="star">★</span> Free 3D Render With Every Proposal</span>
-      <h1>Your Dream Pool, <em>Designed in 3D</em> Before We Build It</h1>
-      <p class="sub">El Paso's trusted custom pool builder since 2007. One team designs, permits, and builds your pool start to finish — and shows you a 3D render of your own backyard with every proposal.</p>
-      <div class="cta-row"><a class="btn btn-lg" href="#design-form">Get My Free Pool Design →</a></div>
-      <div class="chips">
-        <span class="chip"><span class="g">★</span> 4.9 · 36 reviews</span>
-        <span class="chip"><span class="g">●</span> Licensed &amp; Insured</span>
-        <span class="chip"><span class="g">●</span> Permits Handled</span>
-        <span class="chip"><span class="g">●</span> Financing $149/mo</span>
-      </div>
-    </div>
-    <div class="hero-photo">
-      <div class="ph dusk" data-label="HERO PHOTO — finished custom pool at dusk, lit, El Paso backyard"></div>
+    <span class="offer-pill">★ Free 3D Render With Every Proposal</span>
+    <h1>Your Dream Pool, <em>Designed in 3D</em> Before We Build It</h1>
+    <p class="sub">El Paso's trusted custom pool builder since 2007. One team designs, permits, and builds your pool start to finish — and hands you a 3D render of your own backyard with every proposal.</p>
+    <div class="cta-row"><a class="btn btn-lg" href="#design-form">Get My Free Pool Design →</a></div>
+    <div class="chips">
+      <span class="chip"><span class="g">★</span> 4.9 · 36 reviews</span>
+      <span class="chip"><span class="g">●</span> Licensed &amp; Insured</span>
+      <span class="chip"><span class="g">●</span> Permits Handled</span>
+      <span class="chip"><span class="g">●</span> Financing $149/mo</span>
     </div>
   </div>
 </section>
@@ -187,7 +170,7 @@
   </div>
 </div>
 
-<!-- ===== THE OFFER EXPLAINED ===== -->
+<!-- ===== 3D RENDER SECTION ===== -->
 <section class="section render">
   <div class="wrap">
     <div>
@@ -201,16 +184,15 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> We handle the city permits and inspections</li>
       </ul>
     </div>
-    <div class="render-visual">
-      <div class="ph" data-label="3D RENDER of the planned pool"></div>
-      <div class="ph dusk" data-label="THE FINISHED POOL — same yard, real"></div>
-      <div class="arrow">→</div>
+    <div class="render-img">
+      <img src="https://static.wixstatic.com/media/9c39dd_3a2b00a01ba244b8ab7ee671fd334a4a~mv2.jpg/v1/fill/w_1100,h_840,al_c,q_85,enc_auto/ijm-pool-day.jpg" alt="Custom freeform pool with rock waterfall built by IJM Worx in El Paso">
+      <div class="cap">A real IJM build — yours starts with a free 3D render.</div>
     </div>
   </div>
 </section>
 
 <!-- ===== WHY IJM ===== -->
-<section class="section why">
+<section class="section">
   <div class="wrap">
     <div class="head center">
       <span class="eyebrow">Why IJM Worx</span>
@@ -226,24 +208,27 @@
   </div>
 </section>
 
-<!-- ===== TRANSFORMATIONS ===== -->
-<section class="section">
+<!-- ===== GALLERY (real IJM pools) ===== -->
+<section class="section gallery">
   <div class="wrap">
     <div class="head center">
-      <span class="eyebrow">Real El Paso Pools</span>
-      <h2>From bare dirt to a backyard oasis</h2>
-      <p>Real pools we've built across El Paso and the Borderland — not stock photos.</p>
+      <span class="eyebrow">Recent El Paso Pools</span>
+      <h2>Real backyards, really transformed</h2>
+      <p>A few of the custom pools and outdoor spaces we've built across El Paso and the Borderland.</p>
     </div>
-    <div class="ba-grid">
-      <div class="ba"><div class="pair"><div class="ph dirt" data-tag="Before"></div><div class="ph dusk" data-tag="After"></div></div><div class="cap"><b>Westside Pool &amp; Sundeck</b><span>Custom inground pool with tanning ledge</span></div></div>
-      <div class="ba"><div class="pair"><div class="ph dirt" data-tag="Before"></div><div class="ph" data-tag="After"></div></div><div class="cap"><b>Horizon City Pool &amp; Spa</b><span>Inground pool with raised spa &amp; waterfall</span></div></div>
-      <div class="ba"><div class="pair"><div class="ph dirt" data-tag="Before"></div><div class="ph dusk" data-tag="After"></div></div><div class="cap"><b>Upper Valley Oasis</b><span>Pool, waterfall &amp; full deck</span></div></div>
+    <div class="gal-grid">
+      <div class="gal"><img loading="lazy" src="https://static.wixstatic.com/media/9c39dd_1f5046e56c344ef68f56b806bd529cb9~mv2.jpg/v1/fill/w_820,h_620,al_c,q_82,enc_auto/ijm-1.jpg" alt="Night-lit custom pool with spa and fire feature, El Paso"><div class="cap">Night-lit pool, spa &amp; fire feature</div></div>
+      <div class="gal"><img loading="lazy" src="https://static.wixstatic.com/media/9c39dd_3a2b00a01ba244b8ab7ee671fd334a4a~mv2.jpg/v1/fill/w_820,h_620,al_c,q_82,enc_auto/ijm-2.jpg" alt="Freeform pool with rock waterfall, El Paso"><div class="cap">Freeform pool with rock waterfall</div></div>
+      <div class="gal"><img loading="lazy" src="https://static.wixstatic.com/media/9c39dd_a2b2e4684ec24a39a57443ecd76c9ac3~mv2.jpg/v1/fill/w_820,h_620,al_c,q_82,enc_auto/ijm-3.jpg" alt="Pool with sunken fire-pit lounge and turf, El Paso"><div class="cap">Pool with sunken fire-pit lounge</div></div>
+      <div class="gal"><img loading="lazy" src="https://static.wixstatic.com/media/9c39dd_9d05508684b545578fafe7bc71b78abb~mv2.jpg/v1/fill/w_820,h_620,al_c,q_82,enc_auto/ijm-4.jpg" alt="Full backyard pool and outdoor living space, El Paso"><div class="cap">Full backyard pool &amp; living space</div></div>
+      <div class="gal"><img loading="lazy" src="https://static.wixstatic.com/media/9c39dd_21d8ff312dbd4e2d937d11d32a15d5b4~mv2.jpg/v1/fill/w_820,h_620,al_c,q_82,enc_auto/ijm-5.jpg" alt="Custom rock water feature with cascading waterfall, El Paso"><div class="cap">Custom rock water feature</div></div>
+      <div class="gal"><img loading="lazy" src="https://static.wixstatic.com/media/9c39dd_af18dd118ac6498f97d3f22f7fd61952~mv2.jpg/v1/fill/w_820,h_620,al_c,q_82,enc_auto/ijm-6.jpg" alt="Outdoor living area with stacked-stone fire feature, El Paso"><div class="cap">Outdoor living &amp; fire feature</div></div>
     </div>
   </div>
 </section>
 
 <!-- ===== REVIEWS ===== -->
-<section class="section reviews">
+<section class="section">
   <div class="wrap">
     <div class="head center">
       <span class="eyebrow">What El Paso Says</span>
