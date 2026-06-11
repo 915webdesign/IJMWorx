@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IJM Worx — Custom Pools & Outdoor Living in El Paso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14233b; --water-deep:#0c4a6e; --water:#0e7490; --water-bright:#06b6d4;
+    --sun:#e8730f; --sun-soft:#f59e0b; --sand:#f7f2e9; --paper:#ffffff;
+    --muted:#5d6b7a; --line:#e9e1d2; --good:#15803d;
+    --shadow:0 18px 50px -20px rgba(12,74,110,.35);
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.1;letter-spacing:-.01em;font-weight:600}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:'Inter';font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;color:var(--water)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:1rem;padding:14px 24px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:.18s;white-space:nowrap}
+  .btn-sun{background:var(--sun);color:#fff;box-shadow:0 10px 24px -8px rgba(232,115,15,.6)}
+  .btn-sun:hover{background:#cf640a;transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .btn-ink{background:var(--ink);color:#fff}
+  .btn-ink:hover{background:#0b1726;transform:translateY(-2px)}
+  .section{padding:88px 0}
+  .center{text-align:center}
+  .lead{font-size:1.12rem;color:var(--muted)}
+
+  /* placeholders for client photos */
+  .ph{position:relative;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,#0c4a6e,#0e7490 55%,#06b6d4);min-height:240px}
+  .ph::after{content:attr(data-label);position:absolute;left:14px;bottom:12px;right:14px;font-size:.74rem;font-weight:600;color:rgba(255,255,255,.92);text-shadow:0 1px 4px rgba(0,0,0,.35)}
+  .ph.dusk{background:linear-gradient(135deg,#0c4a6e,#3b2f63 55%,#e8730f)}
+  .ph.sun{background:linear-gradient(135deg,#0e7490,#f59e0b 130%)}
+  .ph.dirt{background:linear-gradient(135deg,#6b5638,#a9885a)}
+  .ph.green{background:linear-gradient(135deg,#155e3b,#3f9d52)}
+  .ph.stone{background:linear-gradient(135deg,#3f4756,#7c8696)}
+
+  /* ---------- top utility bar ---------- */
+  .util{background:var(--ink);color:#cdd7e2;font-size:.84rem}
+  .util .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:8px 24px}
+  .util b{color:#fff}
+  .util .dot{opacity:.4;margin:0 8px}
+  .util a{color:#fff;font-weight:600}
+  @media(max-width:760px){.util .u-hide{display:none}}
+
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1160px;margin:0 auto}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand .name{font-family:'Fraunces';font-weight:700;font-size:1.5rem;letter-spacing:.02em}
+  .brand .name span{color:var(--water)}
+  .brand .tag{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:3px}
+  .menu{display:flex;align-items:center;gap:28px}
+  .menu a.link{font-weight:600;font-size:.95rem;color:var(--ink)}
+  .menu a.link:hover{color:var(--water)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .nav-phone{font-weight:700;color:var(--ink)}
+  .hamb{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .hamb span{width:26px;height:2.5px;background:var(--ink);border-radius:2px}
+  @media(max-width:980px){
+    .menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:8px 0;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+    .menu.open{display:flex}
+    .menu a.link{padding:14px 24px;width:100%}
+    .menu .btn{margin:10px 24px}
+    .hamb{display:flex}
+    .nav-phone.u-hide{display:none}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;color:#fff;background:linear-gradient(120deg,#0b3a55 0%,#0e7490 48%,#1f6f6f 75%,#b65a18 140%)}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 120% at 80% 0%,rgba(245,158,11,.25),transparent 60%),linear-gradient(180deg,rgba(8,30,46,.15),rgba(8,30,46,.55))}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;padding-top:74px;padding-bottom:84px}
+  .hero h1{font-size:clamp(2.4rem,5vw,3.7rem);color:#fff;font-weight:700}
+  .hero h1 em{font-style:normal;color:#ffd9a8}
+  .hero p.sub{font-size:1.18rem;color:#eaf2f6;margin-top:18px;max-width:33em}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 13px;border-radius:999px;font-size:.84rem;font-weight:600}
+  .chip svg{width:15px;height:15px}
+  .hero-card{position:relative}
+  .hero-card .ph{min-height:430px;box-shadow:var(--shadow)}
+  .hero-badge{position:absolute;left:-18px;bottom:26px;background:#fff;color:var(--ink);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px}
+  .hero-badge .stars{color:#f59e0b;font-size:1.05rem;letter-spacing:1px}
+  .hero-badge b{display:block;font-size:1.35rem;font-family:'Fraunces'}
+  .hero-badge small{color:var(--muted)}
+  @media(max-width:880px){
+    .hero .wrap{grid-template-columns:1fr;gap:32px;padding-top:54px;padding-bottom:60px}
+    .hero-card .ph{min-height:300px}
+  }
+
+  /* ---------- trust strip ---------- */
+  .trust{background:var(--sand);border-bottom:1px solid var(--line)}
+  .trust .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;padding:22px 24px}
+  .trust .t{display:flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem;color:var(--ink)}
+  .trust .t svg{width:22px;height:22px;color:var(--water);flex-shrink:0}
+
+  /* ---------- section heading ---------- */
+  .head{max-width:680px;margin:0 auto 48px}
+  .head h2{font-size:clamp(1.9rem,3.4vw,2.6rem)}
+  .head p{margin-top:14px;font-size:1.1rem;color:var(--muted)}
+
+  /* ---------- services ---------- */
+  .services{background:var(--paper)}
+  .grid-svc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .svc{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:#fff;transition:.18s}
+  .svc:hover{border-color:var(--water);box-shadow:var(--shadow);transform:translateY(-3px)}
+  .svc .ic{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#e6f4f8,#d2eef6);display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--water)}
+  .svc .ic svg{width:26px;height:26px}
+  .svc h3{font-size:1.18rem;margin-bottom:6px}
+  .svc p{font-size:.92rem;color:var(--muted)}
+  .svc.feature{grid-column:span 2;background:linear-gradient(120deg,#0e7490,#0c4a6e);color:#fff;border:0;display:flex;flex-direction:column;justify-content:flex-end;min-height:210px;position:relative;overflow:hidden}
+  .svc.feature .ic{background:rgba(255,255,255,.16);color:#fff}
+  .svc.feature p{color:#dbeafe}
+  .svc.feature .tagpill{position:absolute;top:18px;right:18px;background:var(--sun);color:#fff;font-size:.72rem;font-weight:700;padding:5px 11px;border-radius:999px;text-transform:uppercase;letter-spacing:.06em}
+  @media(max-width:860px){.grid-svc{grid-template-columns:repeat(2,1fr)}.svc.feature{grid-column:span 2}}
+  @media(max-width:520px){.grid-svc{grid-template-columns:1fr}.svc.feature{grid-column:span 1}}
+
+  /* ---------- 3D feature ---------- */
+  .feature3d{background:var(--ink);color:#fff}
+  .feature3d .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .feature3d h2{font-size:clamp(1.9rem,3.4vw,2.7rem);color:#fff}
+  .feature3d h2 em{font-style:normal;color:#ffd9a8}
+  .feature3d p{color:#c7d2dc;margin-top:16px;font-size:1.08rem}
+  .f3d-steps{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+  .f3d-steps .s{flex:1;min-width:120px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px}
+  .f3d-steps .s b{display:block;color:#fff;font-family:'Fraunces';font-size:1.05rem}
+  .f3d-steps .s span{font-size:.84rem;color:#aebccb}
+  .f3d-visual{position:relative}
+  .f3d-visual .ph{min-height:360px}
+  .f3d-visual .arrow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--sun);color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);font-size:1.4rem}
+  @media(max-width:860px){.feature3d .wrap{grid-template-columns:1fr;gap:30px}}
+
+  /* ---------- transformations ---------- */
+  .work{background:var(--sand)}
+  .ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .ba{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 30px -22px rgba(12,74,110,.4);border:1px solid var(--line)}
+  .ba .pair{display:grid;grid-template-columns:1fr 1fr}
+  .ba .pair .ph{border-radius:0;min-height:150px}
+  .ba .pair .ph::before{content:attr(data-tag);position:absolute;top:10px;left:10px;background:rgba(0,0,0,.55);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:6px;text-transform:uppercase}
+  .ba .cap{padding:16px 18px}
+  .ba .cap b{font-family:'Fraunces';font-size:1.08rem}
+  .ba .cap span{display:block;font-size:.88rem;color:var(--muted);margin-top:2px}
+  @media(max-width:860px){.ba-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+
+  /* ---------- why ---------- */
+  .why .grid-why{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .why .v .ic{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,#fde9d2,#fbd9b0);color:var(--sun);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .why .v .ic svg{width:26px;height:26px}
+  .why .v h3{font-size:1.16rem;margin-bottom:6px}
+  .why .v p{color:var(--muted);font-size:.93rem}
+  @media(max-width:860px){.why .grid-why{grid-template-columns:1fr 1fr;gap:26px}}
+  @media(max-width:520px){.why .grid-why{grid-template-columns:1fr}}
+
+  /* ---------- reviews ---------- */
+  .reviews{background:var(--paper)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .rev{border:1px solid var(--line);border-radius:var(--radius);padding:26px;background:#fff;display:flex;flex-direction:column}
+  .rev .stars{color:#f59e0b;letter-spacing:2px;margin-bottom:12px}
+  .rev p{font-size:.98rem;color:#33414f;flex:1}
+  .rev .who{display:flex;align-items:center;gap:12px;margin-top:18px}
+  .rev .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#0e7490,#06b6d4);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Fraunces'}
+  .rev .who b{font-size:.95rem}
+  .rev .who span{display:block;font-size:.8rem;color:var(--muted)}
+  @media(max-width:860px){.rev-grid{grid-template-columns:1fr}}
+
+  /* ---------- financing band ---------- */
+  .fin{background:linear-gradient(120deg,#0e7490,#0c4a6e)}
+  .fin .wrap{display:flex;align-items:center;justify-content:space-between;gap:30px;color:#fff;flex-wrap:wrap}
+  .fin h2{font-size:clamp(1.7rem,3vw,2.4rem);color:#fff}
+  .fin p{color:#cfe6ef;margin-top:8px;max-width:34em}
+  .fin .price{font-family:'Fraunces';font-size:1.05rem;color:#ffd9a8;font-weight:600}
+
+  /* ---------- service area ---------- */
+  .area{background:var(--sand)}
+  .area .wrap{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+  .area .ph{min-height:300px}
+  .area-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .area-list span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:.88rem;font-weight:600}
+  @media(max-width:860px){.area .wrap{grid-template-columns:1fr;gap:28px}}
+
+  /* ---------- final CTA ---------- */
+  .final{background:var(--ink);color:#fff;text-align:center}
+  .final h2{font-size:clamp(2rem,4vw,3rem);color:#fff;max-width:16em;margin:0 auto}
+  .final h2 em{font-style:normal;color:#ffd9a8}
+  .final p{color:#c7d2dc;margin:16px auto 28px;max-width:34em;font-size:1.1rem}
+  .final .hero-cta{justify-content:center}
+
+  /* ---------- footer ---------- */
+  footer{background:#0b1726;color:#9fb0c0;font-size:.92rem}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:30px;padding:62px 24px 30px;max-width:1160px;margin:0 auto}
+  footer h4{color:#fff;font-family:'Inter';font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:16px}
+  footer a{display:block;padding:5px 0;color:#9fb0c0}
+  footer a:hover{color:#fff}
+  .foot .name{font-family:'Fraunces';font-weight:700;font-size:1.5rem;color:#fff;margin-bottom:8px}
+  .foot .name span{color:var(--water-bright)}
+  .foot p{margin-bottom:6px}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:18px 24px;text-align:center;font-size:.82rem;color:#74889b}
+  @media(max-width:860px){.foot{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.foot{grid-template-columns:1fr}}
+
+  /* ---------- sticky mobile call bar ---------- */
+  .mbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:#fff;border-top:1px solid var(--line);box-shadow:0 -10px 30px -18px rgba(0,0,0,.3);padding:10px 14px;gap:10px}
+  .mbar a{flex:1;justify-content:center}
+  @media(max-width:720px){.mbar{display:flex}body{padding-bottom:76px}}
+</style>
+</head>
+<body>
+
+<!-- UTILITY BAR -->
+<div class="util">
+  <div class="wrap">
+    <div><span class="u-hide">Building El Paso backyards since <b>2007</b><span class="dot">·</span></span><b>Licensed &amp; Insured</b><span class="dot u-hide">·</span><span class="u-hide">Financing from $149/mo</span></div>
+    <div>Free 3D Design · <a href="tel:+19159229618">(915) 922-9618</a></div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav">
+    <a class="brand" href="#top">
+      <span class="name">IJM <span>WORX</span></span>
+      <span class="tag">Outdoor Living · El Paso</span>
+    </a>
+    <nav class="menu" id="menu">
+      <a class="link" href="#build">What We Build</a>
+      <a class="link" href="#design">3D Design</a>
+      <a class="link" href="#work">Our Work</a>
+      <a class="link" href="#reviews">Reviews</a>
+      <a class="link" href="#financing">Financing</a>
+      <a class="btn btn-sun" href="#quote">Free 3D Design</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone u-hide" href="tel:+19159229618">(915) 922-9618</a>
+      <button class="hamb" id="hamb" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="color:#ffd9a8">El Paso's Full-Service Pool &amp; Outdoor Living Builder</span>
+      <h1>From Bare Dirt to Your <em>Backyard Oasis</em></h1>
+      <p class="sub">One team designs and builds your whole backyard — custom pools, pergolas, outdoor kitchens and more — and shows it to you in 3D before we ever break ground.</p>
+      <div class="hero-cta">
+        <a class="btn btn-sun" href="#quote">Get Your Free 3D Design</a>
+        <a class="btn btn-ghost" href="tel:+19159229618">Call (915) 922-9618</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="#ffd166"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg> 4.9★ · 36 Google reviews</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3l8 4v5c0 4.5-3.4 7.8-8 9-4.6-1.2-8-4.5-8-9V7z"/></svg> Licensed &amp; Insured</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg> Permits Handled</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Financing $149/mo</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="ph dusk" data-label="HERO PHOTO — finished custom pool at dusk, lit, with pergola &amp; mountains" style="min-height:430px"></div>
+      <div class="hero-badge">
+        <div>
+          <span class="stars">★★★★★</span>
+          <b>4.9 / 5</b>
+          <small>36 verified reviews</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap">
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 4.5-3.4 7.8-8 9-4.6-1.2-8-4.5-8-9V7z"/></svg> Licensed &amp; Insured</div>
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg> BBB A+ Accredited</div>
+    <div class="t"><svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg> 4.9★ Google Rated</div>
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16v10H4z"/><path d="M4 11h16"/></svg> Financing Available</div>
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg> Local Since 2007</div>
+  </div>
+</div>
+
+<!-- WHAT WE BUILD -->
+<section class="section services" id="build">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow">What We Build</span>
+      <h2>One team for the whole backyard</h2>
+      <p>Stop juggling four contractors for one project. We design and build every part of your outdoor space — start to finish, all under one roof.</p>
+    </div>
+    <div class="grid-svc">
+      <div class="svc feature">
+        <span class="tagpill">Most Requested</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 16c2 0 2-2 4.5-2s2.5 2 4.5 2 2.5-2 4.5-2 2.5 2 4.5 2"/><path d="M3 20c2 0 2-2 4.5-2s2.5 2 4.5 2 2.5-2 4.5-2 2.5 2 4.5 2"/><path d="M7 12V6a2 2 0 014 0"/></svg></div>
+        <h3 style="font-size:1.5rem">Custom Pools</h3>
+        <p>Inground gunite pools, spas, sundecks and waterfalls — designed in 3D and built to last in the El Paso climate.</p>
+      </div>
+      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-5 9 5"/><path d="M5 8v11M19 8v11M9 8v11M15 8v11"/></svg></div><h3>Pergolas &amp; Patio Covers</h3><p>Custom shade structures built to beat the summer heat.</p></div>
+      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 11V7a5 5 0 0110 0v4"/><path d="M5 11h14l-1 9H6z"/></svg></div><h3>Outdoor Kitchens</h3><p>Built-in grills, bars and stonework for hosting outdoors.</p></div>
+      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h7v5H3zM14 6h7v5h-7zM3 13h7v5H3zM14 13h7v5h-7z"/></svg></div><h3>Hardscape &amp; Pavers</h3><p>Paver patios, walkways and retaining walls.</p></div>
+      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 21h4M12 3a6 6 0 014 10c-1 1-1 2-1 3H9c0-1 0-2-1-3a6 6 0 014-10z"/></svg></div><h3>Landscape Lighting</h3><p>Make your backyard shine after dark.</p></div>
+      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 14c2 0 2-2 4.5-2s2.5 2 4.5 2 2.5-2 4.5-2 2.5 2 4.5 2"/><path d="M3 18c2 0 2-2 4.5-2s2.5 2 4.5 2 2.5-2 4.5-2 2.5 2 4.5 2"/></svg></div><h3>Waterfalls &amp; Features</h3><p>The sight and sound of water in your own yard.</p></div>
+      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16v10H4z"/><path d="M4 12h16M9 8v10M15 8v10"/></svg></div><h3>Concrete &amp; Flatwork</h3><p>Stamped and decorative patios, decks and driveways.</p></div>
+      <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V8M12 8c0-3 2-5 5-5 0 3-2 5-5 5zM12 12c0-3-2-5-5-5 0 3 2 5 5 5z"/></svg></div><h3>Landscape Design</h3><p>Full backyard makeovers, dirt to desert oasis.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3D DESIGN FEATURE -->
+<section class="section feature3d" id="design">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="color:#ffd9a8">The IJM Difference</span>
+      <h2>See your backyard in 3D <em>before we break ground</em></h2>
+      <p>Spending tens of thousands on something you can't picture is scary. So we don't ask you to. We walk you through a 3D rendering of your own property — so you see exactly how your pool, pergola and patio come together before a shovel touches the dirt.</p>
+      <div class="f3d-steps">
+        <div class="s"><b>1. Design</b><span>Free 3D rendering of your yard</span></div>
+        <div class="s"><b>2. Build</b><span>We handle permits &amp; construction</span></div>
+        <div class="s"><b>3. Enjoy</b><span>Your first swim in your oasis</span></div>
+      </div>
+      <div class="hero-cta"><a class="btn btn-sun" href="#quote">Get Your Free 3D Design</a></div>
+    </div>
+    <div class="f3d-visual">
+      <div class="pair" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div class="ph stone" data-label="3D RENDERING of the planned backyard"></div>
+        <div class="ph sun" data-label="THE FINISHED BUILD — same yard, real"></div>
+      </div>
+      <div class="arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATIONS -->
+<section class="section work" id="work">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow">Real El Paso Transformations</span>
+      <h2>From "ugly dirt" to a desert oasis</h2>
+      <p>Real backyards we've built across El Paso and the Borderland — not stock photos, not demo accounts.</p>
+    </div>
+    <div class="ba-grid">
+      <div class="ba">
+        <div class="pair"><div class="ph dirt" data-tag="Before" data-label=""></div><div class="ph sun" data-tag="After" data-label=""></div></div>
+        <div class="cap"><b>Westside Backyard Oasis</b><span>Custom pool, sundeck &amp; misting pergola</span></div>
+      </div>
+      <div class="ba">
+        <div class="pair"><div class="ph dirt" data-tag="Before" data-label=""></div><div class="ph dusk" data-tag="After" data-label=""></div></div>
+        <div class="cap"><b>Horizon City Pool &amp; Kitchen</b><span>Inground pool with full outdoor kitchen</span></div>
+      </div>
+      <div class="ba">
+        <div class="pair"><div class="ph dirt" data-tag="Before" data-label=""></div><div class="ph green" data-tag="After" data-label=""></div></div>
+        <div class="cap"><b>Upper Valley Full Remodel</b><span>Pool, waterfall, hardscape &amp; lighting</span></div>
+      </div>
+    </div>
+    <div class="center" style="margin-top:34px"><a class="btn btn-ink" href="#">View the Full Gallery</a></div>
+  </div>
+</section>
+
+<!-- WHY IJM -->
+<section class="section why">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow">Why IJM Worx</span>
+      <h2>Contractors you can actually count on</h2>
+      <p>You've heard the horror stories — the crew that ghosts you, the job that never finishes. That's not us, and our reviews prove it.</p>
+    </div>
+    <div class="grid-why">
+      <div class="v"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h9"/></svg></div><h3>One team, whole backyard</h3><p>Design and build under one roof — no juggling contractors, one number to call.</p></div>
+      <div class="v"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Crews that show up</h3><p>On time, clean job sites, clear communication — start to finish.</p></div>
+      <div class="v"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16v12H4z"/><path d="M8 7V5a4 4 0 018 0v2"/></svg></div><h3>We handle the permits</h3><p>City permits and inspections are on us — we take the headache off your plate.</p></div>
+      <div class="v"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div><h3>Craftsmanship since 2007</h3><p>Premium tile, plaster and equipment, with a 4.9★ track record to back it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews" id="reviews">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow">What El Paso Says</span>
+      <h2>4.9 stars across 36 reviews</h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <p>"They completely transformed my backyard into a relaxing getaway right at home. The crew was professional, on time, and super easy to work with from start to finish. Everything turned out even better than I imagined."</p>
+        <div class="who"><div class="av">R</div><div><b>Rick Chacon</b><span>Custom pool · El Paso</span></div></div>
+      </div>
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <p>"Best experience ever — they delivered beyond what we asked. More than professional, they make you feel like family. We went from ugly dirt to a desert oasis. I recommend them for any outdoor remodel."</p>
+        <div class="who"><div class="av">C</div><div><b>Carlos Mendez</b><span>Backyard remodel · El Paso</span></div></div>
+      </div>
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <p>"From our first consultation to the final splash, the process was seamless. The 3D walkthrough let us see everything before we broke ground. They didn't just build a pool — they built a relationship."</p>
+        <div class="who"><div class="av">A</div><div><b>Angel De La Rosa</b><span>Custom pool · El Paso</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCING BAND -->
+<section class="section fin" id="financing">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="color:#ffd9a8">Financing Available</span>
+      <h2>Your dream backyard, from $149/mo</h2>
+      <p>Don't put it off another summer. Flexible financing turns a big project into an easy monthly payment — quick, easy approval.</p>
+    </div>
+    <a class="btn btn-sun" href="#quote">See If You Qualify</a>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="section area">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Where We Build</span>
+      <h2 style="font-size:clamp(1.8rem,3vw,2.4rem);margin-top:8px">Proudly serving El Paso &amp; the Borderland</h2>
+      <p class="lead" style="margin-top:14px">Family-owned and local. If your backyard's in the area, we'll bring it to life.</p>
+      <div class="area-list">
+        <span>El Paso</span><span>Upper Valley</span><span>Westside</span><span>Northeast</span><span>Horizon City</span><span>Socorro</span><span>San Elizario</span><span>Canutillo</span><span>Vinton</span><span>Sunland Park, NM</span>
+      </div>
+    </div>
+    <div class="ph green" data-label="MAP or aerial photo of an El Paso backyard build"></div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section final" id="quote">
+  <div class="wrap">
+    <span class="eyebrow" style="color:#ffd9a8">Let's Build It</span>
+    <h2>Ready to build your <em>backyard oasis?</em></h2>
+    <p>Tell us about your project and get a free 3D design — no pressure, ever. See your new backyard before you commit to a thing.</p>
+    <div class="hero-cta">
+      <a class="btn btn-sun" href="tel:+19159229618">Call (915) 922-9618</a>
+      <a class="btn btn-ghost" href="#">Request Your Free 3D Design</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <div>
+      <div class="name">IJM <span>WORX</span></div>
+      <p>El Paso's full-service outdoor living builder. Custom pools, pergolas, outdoor kitchens and complete backyard transformations — designed in 3D, built to last.</p>
+      <p style="margin-top:12px;color:#fff;font-weight:600">Licensed &amp; Insured · BBB A+ · Since 2007</p>
+    </div>
+    <div>
+      <h4>What We Build</h4>
+      <a href="#build">Custom Pools</a>
+      <a href="#build">Pergolas &amp; Patios</a>
+      <a href="#build">Outdoor Kitchens</a>
+      <a href="#build">Hardscape &amp; Concrete</a>
+      <a href="#build">Landscape Design</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="#design">3D Design Process</a>
+      <a href="#work">Our Work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#financing">Financing</a>
+      <a href="#quote">Free Estimate</a>
+    </div>
+    <div>
+      <h4>Get In Touch</h4>
+      <a href="tel:+19159229618">(915) 922-9618</a>
+      <a href="mailto:ijmworx@gmail.com">ijmworx@gmail.com</a>
+      <p style="margin-top:6px">8811 Alameda Ave<br>El Paso, TX 79907</p>
+      <a class="btn btn-sun" href="#quote" style="margin-top:14px">Free 3D Design</a>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 IJM Worx · Outdoor Living Contractor · El Paso, TX · Licensed &amp; Insured</div>
+</footer>
+
+<!-- STICKY MOBILE CALL BAR -->
+<div class="mbar">
+  <a class="btn btn-ink" href="tel:+19159229618">Call Now</a>
+  <a class="btn btn-sun" href="#quote">Free 3D Design</a>
+</div>
+
+<script>
+  // mobile menu
+  var hamb=document.getElementById('hamb'),menu=document.getElementById('menu');
+  hamb.addEventListener('click',function(){menu.classList.toggle('open')});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open')})});
+</script>
+</body>
+</html>
