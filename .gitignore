@@ -1,6 +1,9 @@
 # Claude Code local settings (per-user / per-session)
 .claude/settings.local.json
 
+# Scratch / working files (logo downloads, temp decode files)
+.tmp/
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db
