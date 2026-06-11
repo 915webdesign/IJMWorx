@@ -56,13 +56,51 @@ suffix just resizes/compresses on the fly — keep that pattern for speed.
 > **Recent Pools gallery** of finished work instead. Send before/after pairs and
 > I'll add them.
 
-## How to publish in Wix
-1. Add an **Embed → Custom Element / HTML iframe** (or Velo HTML component) to the page.
-2. Paste the full contents of `index.html`.
-3. Replace the `#wix-form-embed` placeholder with your Wix form (or position a
-   native Wix form element over that area).
-4. Confirm the form fires a conversion (see the campaign tracking checklist) so
+## Embedding in Wix — doctype & height (read this)
+
+**Keep the `<!DOCTYPE html>`.** Wix's "Embed HTML" renders your code as a
+standalone document inside a sandboxed iframe. The doctype forces standards
+("no-quirks") mode so the modern CSS (flex/grid/`clamp`/`aspect-ratio`) renders
+correctly — without it the iframe can fall into quirks mode and break the
+layout. The file already includes the doctype, `<meta charset>`, and
+`<meta viewport>`, and every asset URL is HTTPS (Wix blocks HTTP). No change
+needed there.
+
+**The real constraint is height, not the doctype.** A Wix *Embed HTML* iframe
+has a **fixed height** set in the editor and **can't auto-grow** to its content,
+so a long page like this clips or shows an inner scrollbar. Two ways to handle it:
+
+### Option A — Custom Element (recommended for a full page)
+Renders in the page's real DOM (no iframe) so it flows naturally, resizes to
+content, loads faster, and is indexable. Turn on Wix **Dev Mode (Velo)**, then
+**Add → Embed Code → Custom Element** and point it at a JS file. Ask me and I'll
+package `index.html` as a ready-to-host custom-element JS file.
+
+### Option B — Embed HTML iframe (quick)
+**Add → Embed Code → Embed HTML → Code**, paste all of `index.html`, stretch it
+full-width, and set the height. Since this Wix page is *only* the landing page,
+there's nothing below it to push. The page reports its own height, so you can
+auto-size the iframe with a few lines of Velo on the page:
+
+```js
+$w.onReady(() => {
+  $w('#html1').onMessage((e) => {
+    if (e.data && e.data.ijmHeight) $w('#html1').height = e.data.ijmHeight;
+  });
+});
+```
+
+(Setting `.height` on the HTML component is inconsistent across Wix versions; if
+it won't size, use Option A.)
+
+### Then, for either option
+1. Drop your Wix form into the `#wix-form-embed` box — the single conversion.
+2. Make sure the form fires a conversion (see the campaign tracking checklist) so
    the ad traffic is measurable.
+
+Sources: [Wix HTML iframe element (Velo)](https://dev.wix.com/docs/develop-websites/articles/wix-editor-elements/other-elements/html-i-frame-element/working-with-the-html-iframe-element),
+[HtmlComponent messaging (Velo)](https://dev.wix.com/docs/velo/velo-only-apis/$w/html-component/messaging-between-a-site-page-and-an-html-element),
+[Wix Studio forum: dynamic iframe height](https://forum.wixstudio.com/t/dynamic-height-for-embed-html-or-custom-element-to-resize-with-iframe-content/65727).
 
 > Once the landing page is live, update the Custom Pools campaign's Final URLs
 > (`campaigns/custom-pools-2026-06/`) from the homepage placeholder to this page.

@@ -24,7 +24,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.12;font-weight:600;letter-spacing:-.01em}
   img{max-width:100%;display:block}
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
@@ -282,6 +282,22 @@
   <div class="nap"><b>IJM Worx</b> · Custom Pools &amp; Outdoor Living · 8811 Alameda Ave, El Paso, TX 79907 · (915) 922-9618</div>
   <div class="legal">Licensed &amp; Insured · BBB A+ · Serving El Paso &amp; the Borderland since 2007</div>
 </footer>
+
+<script>
+  /* Auto-height: announce this page's height to the Wix parent so an Embed-HTML
+     iframe (with the Velo onMessage handler in README) or a Custom Element can
+     size to fit — no inner scrollbar. Harmless when not framed. */
+  (function () {
+    function sendHeight() {
+      var h = Math.ceil(document.documentElement.getBoundingClientRect().height);
+      try { window.parent.postMessage({ ijmHeight: h }, '*'); } catch (e) {}
+    }
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+    if (window.ResizeObserver) new ResizeObserver(sendHeight).observe(document.body);
+    setTimeout(sendHeight, 600); /* after fonts/images settle */
+  })();
+</script>
 
 </body>
 </html>
