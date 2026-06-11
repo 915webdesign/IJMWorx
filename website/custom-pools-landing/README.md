@@ -72,9 +72,25 @@ so a long page like this clips or shows an inner scrollbar. Two ways to handle i
 
 ### Option A — Custom Element (recommended for a full page)
 Renders in the page's real DOM (no iframe) so it flows naturally, resizes to
-content, loads faster, and is indexable. Turn on Wix **Dev Mode (Velo)**, then
-**Add → Embed Code → Custom Element** and point it at a JS file. Ask me and I'll
-package `index.html` as a ready-to-host custom-element JS file.
+content, loads faster, and is indexable. **Built and ready:**
+
+- `ijm-pools-landing.js` — the custom element (Shadow DOM, self-contained, real photos).
+- `custom-element-preview.html` — open this locally (with the JS in the same
+  folder) to preview exactly what Wix will render.
+
+**Wix steps (Dev Mode / Velo ON):**
+1. **Code Files → Public →** upload `ijm-pools-landing.js` (or host it on any HTTPS URL).
+2. Editor: **Add → Embed Code → Custom Element.**
+3. **Choose Element** → the uploaded file; set **Tag Name** to exactly
+   `ijm-pools-landing`.
+4. Stretch it full-width. It auto-sizes to its content — no fixed height, no scrollbar.
+
+**The form (single conversion):** the element renders the styled "Get Your Free
+Pool Design" card with a dashed slot. Shadow DOM can't host a native Wix form
+*inside* it, so add a **native Wix Form** element and drag it over that dashed
+area (the element flows in the page, so it overlaps cleanly). Want a variant that
+**ends right before the form** so you can drop the Wix Form natively beneath it?
+Say the word and I'll output it.
 
 ### Option B — Embed HTML iframe (quick)
 **Add → Embed Code → Embed HTML → Code**, paste all of `index.html`, stretch it
