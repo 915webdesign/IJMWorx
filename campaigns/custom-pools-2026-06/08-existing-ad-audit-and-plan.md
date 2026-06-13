@@ -65,4 +65,6 @@ spend. Reassess after ~30 days / 15–30 conversions, then consider tCPA.
 >
 > Last thing — right now the ad sends people to your homepage, and we don't want that. The homepage gives them a full menu and a dozen other places to click off to, so a lot of them get distracted and leave without ever calling. I'll point it at the dedicated pool page instead (ep-pools) — no menu, no distractions, just your work and one simple name + phone form. Pages like that convert 30–50% better than a homepage for exactly that reason.
 >
-> None of this is bad — your foundation's solid, these are just tweaks to pull a lot more calls out of the same spend. Want me to go in and make the changes, or walk you through them first?
+> Honestly none of this is bad — it's the exact stuff that trips everyone up setting it up themselves, Google kind of pushes you into it. Your foundation's solid.
+>
+> If you want, the easiest move is to just let me take the ads off your plate — I'll get all these fixes in and keep them optimized month to month so you're not babysitting the dashboard. You focus on building pools, I'll keep the leads coming. Either way I'll get these fixes done — just let me know how you want to run it.
