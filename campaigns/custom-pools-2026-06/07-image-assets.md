@@ -17,20 +17,27 @@ campaign. Closes the audit's "no image assets" gap (~+4% CTR opportunity).
 
 ## A. Use-now shortlist (from your existing library)
 
-### Fastest path — pull these cropped straight from your Wix CDN
-I've **visually confirmed** these five look great. Open each URL and "Save
-image"; the link already crops/sizes it for Ads.
+### Ready-to-upload files (already generated) → `ad-images/`
+I cropped your confirmed photos to spec. Upload straight to Google Ads
+(**Assets → Images**). Each is named by content + ratio.
 
-| Shows | 1:1 (square) | 1.91:1 (landscape) |
+| File (in `ad-images/`) | Shows | Role |
 |---|---|---|
-| Night pool, spa & fire (your best) | `…9c39dd_1f5046e56c344ef68f56b806bd529cb9~mv2.jpg/v1/fill/w_1200,h_1200,al_c,q_85,enc_auto/p.jpg` | `…/v1/fill/w_1200,h_628,al_c,q_85,enc_auto/p.jpg` |
-| Freeform pool + rock waterfall | `…9c39dd_3a2b00a01ba244b8ab7ee671fd334a4a~mv2.jpg/v1/fill/w_1200,h_1200,…` | `…/v1/fill/w_1200,h_628,…` |
-| Pool + sunken fire-pit lounge | `…9c39dd_a2b2e4684ec24a39a57443ecd76c9ac3~mv2.jpg/v1/fill/w_1200,h_1200,…` | `…/v1/fill/w_1200,h_628,…` |
-| Full backyard pool + mountains | `…9c39dd_9d05508684b545578fafe7bc71b78abb~mv2.jpg/v1/fill/w_1200,h_1200,…` | `…/v1/fill/w_1200,h_628,…` |
-| Custom rock water feature | `…9c39dd_21d8ff312dbd4e2d937d11d32a15d5b4~mv2.jpg/v1/fill/w_1200,h_1200,…` | `…/v1/fill/w_1200,h_628,…` |
+| `01-pool-night-fire` — 1:1, 1.91:1, 4:5 | Night LED pool, spa & fire feature | ★ Hero |
+| `02-pool-day-waterfall` — 1:1, 1.91:1, 4:5 | Daytime freeform pool, chairs, palms | ★ Hero |
+| `03-pool-firepit-lounge` — 1:1, 1.91:1 | Pool + sunken fire-pit lounge | Pool + feature |
+| `04-backyard-pool-mountains` — 1:1, 1.91:1 | Full backyard, pool, mountains | Local / scope |
+| `05-water-feature` — 1:1, 1.91:1 | Custom rock water feature | Pool-adjacent |
+| `06-firepit-patio-night` — 1:1, 1.91:1 | Night fire-pit & lit paver patio | Outdoor living (bonus) |
 
-(Full host prefix is `https://static.wixstatic.com/media/`. Center-crop may clip
-tall subjects — recrop if needed.)
+Start with the two heroes + `03`; add the rest for variety. 1:1 and 1.91:1 cover
+all Search placements; 4:5 adds mobile portrait reach. All are 1200 px, < 5 MB,
+no baked-in text.
+
+> **More pool variety:** your Drive pool folder has ~12 more pool-dominant shots
+> (blue-water, spa tile, lighting, standard/small/custom) not all mirrored on the
+> live site. To crop those into this set I'd need Drive `download_file_content`
+> approved (it was blocked), or drop them in the repo and I'll process them.
 
 ### Best quality + more variety — your Drive "pool" folder originals
 High-res, already named. Recommended picks (download → crop 1:1 + 1.91:1 → upload):
