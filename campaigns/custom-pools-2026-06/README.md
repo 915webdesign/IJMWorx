@@ -12,6 +12,7 @@ here, expand to other services later.
 - `04-extensions-and-assets.md` — call, location, sitelinks, callouts, snippets, price, images.
 - `05-landing-page-brief.md` — the dedicated custom-pools page to send ads to.
 - `06-tracking-and-launch-checklist.md` — fix tracking, then launch QA.
+- `07-image-assets.md` — ad image-asset shortlist (existing photos) + shot brief for gaps.
 - `import/keywords.csv`, `import/responsive-search-ads.csv`, `import/negative-keywords.csv` — Google Ads Editor–ready.
 
 ## Campaign at a glance
