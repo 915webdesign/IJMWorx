@@ -51,15 +51,18 @@ spend. Reassess after ~30 days / 15–30 conversions, then consider tCPA.
 
 ---
 
-## Suggested text to Izaak
-> Took a look — the ad itself is actually really good. Strong copy, 11% click rate (way above average), and it's pulling leads. Nice work.
+## Suggested text to Izaak (complete message)
+> Took a look at the ad — honestly the ad itself is really good. Strong copy, 11% click rate (way above average), and it's already pulling in leads. Nice work setting it up.
 >
-> The main thing holding it back is the targeting you set up. The income setting is excluding everyone Google marks as "unknown income" — and that's most people searching, so it's quietly blocking a lot of good local leads. Easy fix, we just switch "unknown" back on.
+> The stuff holding it back is all in the settings, and the good news is it's easy to fix.
 >
-> a few other quick wins:
-> • it's set to chase clicks, not leads — flipping it to "maximize conversions" tells Google to go after calls/forms instead
-> • budget's maxed — you're losing about 1 in 5 searches because the $50/day runs out, and it's already profitable, so bumping it = more calls
-> • no "call" button on the ad yet (there's a terms box to accept first, 2 min)
-> • I'll also point it at the new pool landing page instead of the homepage
+> Biggest one: the income targeting you set up is excluding everyone Google labels as "unknown income" — and that's most people who search. So it's quietly blocking a big chunk of good local leads. We just switch "unknown" back on and the doors open back up.
 >
-> None of it's bad — the foundation's solid, these are just tweaks to get you more calls for the same money. I wrote up the full list. Want me to just make the changes, or walk you through them?
+> A few other quick wins:
+> • It's set to chase clicks, not actual leads — flipping it to "maximize conversions" tells Google to go after calls and form fills instead of just clicks.
+> • Your budget's maxed out — you're losing about 1 in 5 searches just because the $50/day runs out. It's already making money, so bumping the budget = more calls.
+> • There's no "call" button on the ad yet. Quick add — you just have to accept a terms box first (2 min).
+>
+> Last thing — right now the ad sends people to your homepage, and we don't want that. The homepage gives them a full menu and a dozen other places to click off to, so a lot of them get distracted and leave without ever calling. I'll point it at the dedicated pool page instead (ep-pools) — no menu, no distractions, just your work and one simple name + phone form. Pages like that convert 30–50% better than a homepage for exactly that reason.
+>
+> None of this is bad — your foundation's solid, these are just tweaks to pull a lot more calls out of the same spend. Want me to go in and make the changes, or walk you through them first?
