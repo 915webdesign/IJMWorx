@@ -13,6 +13,7 @@ here, expand to other services later.
 - `05-landing-page-brief.md` — the dedicated custom-pools page to send ads to.
 - `06-tracking-and-launch-checklist.md` — fix tracking, then launch QA.
 - `07-image-assets.md` — ad image-asset shortlist (existing photos) + shot brief for gaps.
+- `08-existing-ad-audit-and-plan.md` — findings from the live audit of the running ad + action plan for Izaak.
 - `import/keywords.csv`, `import/responsive-search-ads.csv`, `import/negative-keywords.csv` — Google Ads Editor–ready.
 
 ## Campaign at a glance
